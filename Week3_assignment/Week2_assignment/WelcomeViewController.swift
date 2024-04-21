@@ -88,8 +88,11 @@ class WelcomeViewController: UIViewController {
     
     // MARK: - Actions
         @objc private func didTapMainButton() {
-            // Handle the button tap
-            // You may want to navigate to the main part of your app here
+            // MainViewController 인스턴스 생성
+            let mainViewController = MainViewController()
+            
+            // 네비게이션 컨트롤러를 사용해 MainViewController로 화면 전환
+            navigationController?.pushViewController(mainViewController, animated: true)
         }
     
     // Add this function to handle the main button tap

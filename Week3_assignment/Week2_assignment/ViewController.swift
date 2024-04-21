@@ -39,6 +39,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
     // 엑스 모양 버튼
     let clearButton = UIButton()
     
+//    let setupEyeAndClearButtons = UIButton()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupLayout()
@@ -52,11 +54,16 @@ class ViewController: UIViewController, UITextFieldDelegate {
         updateLoginButtonState()
         
         // 눈 모양 버튼 설정
-        setupEyeButton()
-        setupClearButton()
+//        setupEyeButton()
+//        setupClearButton()
+        
+        setupEyeAndClearButtons()
+        
         
         // 로그인 버튼에 대한 액션 설정
         loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
+        
+
     }
     
     // 텍스트 필드의 내용이 변경될 때마다 호출
@@ -93,42 +100,67 @@ class ViewController: UIViewController, UITextFieldDelegate {
         loginButton.backgroundColor = isFormValid ? UIColor(hex: "#FF143C") : .black // 활성화 상태에 따라 배경 색상 변경
     }
     
-    private func setupEyeButton() {
+//    private func setupEyeButton() {
+//        eyeButton.setImage(UIImage(named: "eye-closed"), for: .normal)
+//        eyeButton.addTarget(self, action: #selector(togglePasswordVisibility), for: .touchUpInside)
+//
+//        eyeButton.translatesAutoresizingMaskIntoConstraints = false // Auto Layout 사용 설정
+//        passwordTextField.rightView = eyeButton
+//        passwordTextField.rightViewMode = .always
+//
+//        passwordTextField.isSecureTextEntry = true
+//
+//        NSLayoutConstraint.activate([
+//            eyeButton.widthAnchor.constraint(equalToConstant: 20),
+//            eyeButton.heightAnchor.constraint(equalToConstant: 20)
+//        ])
+//    }
+//
+//    private func setupClearButton() {
+//        clearButton.setImage(UIImage(named: "x-circle1"), for: .normal)
+//        clearButton.addTarget(self, action: #selector(clearPasswordTextField), for: .touchUpInside)
+//
+//        clearButton.translatesAutoresizingMaskIntoConstraints = false // Auto Layout 사용 설정
+//        passwordTextField.rightView = clearButton
+//        passwordTextField.rightViewMode = .whileEditing
+//
+//        NSLayoutConstraint.activate([
+//            clearButton.widthAnchor.constraint(equalToConstant: 20), // 너비와 높이를 20x20으로 설정
+//            clearButton.heightAnchor.constraint(equalToConstant: 20)
+//        ])
+//    }
+    
+    
+    private func setupEyeAndClearButtons() {
+        let buttonsContainer = UIView(frame: CGRect(x: 0, y: 0, width: 76, height: 20)) // eyeButton과 clearButton을 모두 포함할 수 있는 크기
+        
+
+        // eyeButton 설정
         eyeButton.setImage(UIImage(named: "eye-closed"), for: .normal)
+        eyeButton.frame = CGRect(x: 46, y: 0, width: 20, height: 20) // buttonsContainer 내에서의 위치
         eyeButton.addTarget(self, action: #selector(togglePasswordVisibility), for: .touchUpInside)
         
-        eyeButton.translatesAutoresizingMaskIntoConstraints = false // Auto Layout 사용 설정
-        passwordTextField.rightView = eyeButton
-        passwordTextField.rightViewMode = .always
-        
-        passwordTextField.isSecureTextEntry = true
-        
-        NSLayoutConstraint.activate([
-            eyeButton.widthAnchor.constraint(equalToConstant: 20),
-            eyeButton.heightAnchor.constraint(equalToConstant: 20)
-        ])
-    }
-
-    private func setupClearButton() {
-        clearButton.setImage(UIImage(named: "20px_ver"), for: .normal)
+        // clearButton 설정
+        clearButton.setImage(UIImage(named: "x-circle1"), for: .normal)
+        clearButton.frame = CGRect(x: 16, y: 0, width: 20, height: 20) // buttonsContainer 내에서의 위치, 오른쪽에서 56픽셀의 위치에 eyeButton이 있으므로
         clearButton.addTarget(self, action: #selector(clearPasswordTextField), for: .touchUpInside)
         
-        clearButton.translatesAutoresizingMaskIntoConstraints = false // Auto Layout 사용 설정
-        passwordTextField.rightView = clearButton
-        passwordTextField.rightViewMode = .whileEditing
-        
-        NSLayoutConstraint.activate([
-            clearButton.widthAnchor.constraint(equalToConstant: 20), // 너비와 높이를 20x20으로 설정
-            clearButton.heightAnchor.constraint(equalToConstant: 20)
-        ])
+        buttonsContainer.addSubview(eyeButton)
+        buttonsContainer.addSubview(clearButton)
+
+        passwordTextField.rightView = buttonsContainer
+        passwordTextField.rightViewMode = .always
+        passwordTextField.isSecureTextEntry = true
     }
+
+    
 
 
     // 비밀번호 가시성 토글 메서드
     @objc private func togglePasswordVisibility() {
         passwordTextField.isSecureTextEntry.toggle()
         
-        let imageName = passwordTextField.isSecureTextEntry ? "20px_ver_eye" : "eye-opened"
+        let imageName = passwordTextField.isSecureTextEntry ? "eye-closed" : "eye-opened"
             eyeButton.setImage(UIImage(named: imageName), for: .normal)
             eyeButton.tintColor = .clear
         
@@ -299,7 +331,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        if let image = UIImage(named: "20px_ver") {
+        if let image = UIImage(named: "x-circle") {
             let imageSize = image.size
             print("Image Size: \(imageSize)")
         } else {
@@ -313,14 +345,16 @@ class ViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLayoutSubviews()
         
         // 눈 모양 버튼 위치 설정
-            if let eyeButton = passwordTextField.rightView as? UIButton {
-                eyeButton.frame.origin = CGPoint(x: passwordTextField.frame.width - 20 - 20, y: (passwordTextField.frame.height - 20) / 2) // 오른쪽에서 20만큼 떨어지고 세로 중앙 정렬
-            }
-            
-            // 엑스 모양 버튼 위치 설정
-            if let clearButton = passwordTextField.rightView as? UIButton {
-                clearButton.frame.origin = CGPoint(x: passwordTextField.frame.width - 20 - 20 - 18, y: (passwordTextField.frame.height - 20) / 2) // 오른쪽에서 20만큼 떨어지고 눈 모양에서 왼쪽으로 20만큼 떨어지고 세로 중앙 정렬
-            }
+           if let eyeButton = passwordTextField.rightView as? UIButton {
+               // 화면 오른쪽에서 40픽셀 떨어지도록 수정
+               eyeButton.frame.origin = CGPoint(x: passwordTextField.frame.width - 60 - eyeButton.frame.width, y: (passwordTextField.frame.height - eyeButton.frame.height) / 2)
+           }
+           
+           // 엑스 모양 버튼 위치 설정
+           if let clearButton = passwordTextField.rightView as? UIButton {
+               // 화면 오른쪽에서 56픽셀 떨어지도록 수정
+               clearButton.frame.origin = CGPoint(x: passwordTextField.frame.width - 96 - clearButton.frame.width, y: (passwordTextField.frame.height - clearButton.frame.height) / 2)
+           }
 
     }
 
