@@ -6,7 +6,6 @@
 //
 
 import UIKit
-
 import SnapKit
 import Then
 
@@ -143,38 +142,28 @@ final class MainViewController: UIViewController {
         register()
         setLayout()
         
-        NetworkManager.shared.fetchBoxOfficeData { (livePrograms, error) in
-//            if let livePrograms = livePrograms {
-//                // 데이터를 collectionView에 로드
-//                self.livePrograms = livePrograms
-//                DispatchQueue.main.async {
-//                    self.mainCollectionView.reloadData()
-//                }
-//            } else if let error = error {
-//                print("Error fetching data: \(error.localizedDescription)")
-//            }
-            if let error = error {
-                 // 오류 처리
-                 print("Error fetching data: \(error)")
-                 return
-             }
-             
-             // 가져온 데이터를 MainViewController의 배열에 할당
-             if let livePrograms = livePrograms {
-                 self.livePrograms = livePrograms
-//                 print(self.livePrograms)
-
-                 // 데이터를 가져온 후에는 UI 업데이트를 수행할 수 있음
-                 // 예: 테이블 뷰 업데이트 등
-//                 self.updateUI()
-                 DispatchQueue.main.async { [weak self] in
-
-                     print(self?.livePrograms)
-                            self?.mainCollectionView.reloadData()
-                        }
-                 
-             }
-        }
+        NetworkManager.shared.fetchBoxOfficeData { [weak self] (livePrograms, error) in
+                if let error = error {
+                    // 에러 발생 시 콘솔에 에러를 출력합니다.
+                    print("Error fetching data: \(error)")
+                    return
+                }
+                
+                // 데이터 로딩이 성공적으로 완료되면,
+                if let livePrograms = livePrograms {
+                    // 콘솔에 가져온 프로그램 데이터를 출력합니다.
+                    print("Fetched live programs: \(livePrograms)")
+                    
+                    // MainViewController의 livePrograms 배열에 데이터를 저장합니다.
+                    self?.livePrograms = livePrograms
+                    
+                    // UI 업데이트는 메인 스레드에서 수행합니다.
+                    DispatchQueue.main.async { [weak self] in
+                        // UICollectionView를 리로드하여 UI에 반영합니다.
+                        self?.mainCollectionView.reloadData()
+                    }
+                }
+            }
       
 
         
@@ -373,7 +362,7 @@ extension MainViewController: UIScrollViewDelegate {
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        print(scrollView.contentOffset.y, bufferView.frame.minY)
+//        print(scrollView.contentOffset.y, bufferView.frame.minY)
         
         if scrollView == self.scrollView {
             // sticky 타이밍을 계산
@@ -434,6 +423,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
             case 0, 2, 4:
                 return posters.count
             case 1:
+                print("Number of live programs: \(livePrograms.count)")
                 return livePrograms.count
             case 3:
                 return baseballSlogans.count
@@ -444,30 +434,49 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        // 탭 컨트롤 컬렉션 뷰 (tag == 1)
         if collectionView.tag == 1 {
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TabControlCollectionViewCell.identifier, for: indexPath) as? TabControlCollectionViewCell else { return UICollectionViewCell() }
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TabControlCollectionViewCell.identifier, for: indexPath) as? TabControlCollectionViewCell else {
+                fatalError("Unable to dequeue TabControlCollectionViewCell")
+            }
             cell.fetchData(model: tabs[indexPath.row])
             return cell
-        } else {
+        }
+        // 메인 컬렉션 뷰 (tag == 2)
+        else if collectionView.tag == 2 {
             switch indexPath.section {
-            case 0, 2, 4:
-                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PosterCollectionViewCell.identifier, for: indexPath) as? PosterCollectionViewCell else { return UICollectionViewCell() }
+            case 0, 2, 4: // 포스터 아이템 셀
+                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PosterCollectionViewCell.identifier, for: indexPath) as? PosterCollectionViewCell else {
+                    fatalError("Unable to dequeue PosterCollectionViewCell")
+                }
                 cell.fetchData(model: posters[indexPath.row])
                 return cell
-            case 1:
-                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LiveCollectionViewCell.identifier, for: indexPath) as? LiveCollectionViewCell else { return UICollectionViewCell() }
-                cell.fetchData(model: livePrograms[indexPath.row])
+            
+            case 1: // 라이브 프로그램 아이템 셀
+                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LiveCollectionViewCell.identifier, for: indexPath) as? LiveCollectionViewCell else {
+                    fatalError("Unable to dequeue LiveCollectionViewCell")
+                }
+                if indexPath.row < livePrograms.count {
+                    let liveProgram = livePrograms[indexPath.row]
+                    cell.fetchData(model: liveProgram)
+                }
                 return cell
-            case 3:
-                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BaseballCollectionViewCell.identifier, for: indexPath) as? BaseballCollectionViewCell else { return UICollectionViewCell() }
+            
+            case 3: // 야구 슬로건 아이템 셀
+                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BaseballCollectionViewCell.identifier, for: indexPath) as? BaseballCollectionViewCell else {
+                    fatalError("Unable to dequeue BaseballCollectionViewCell")
+                }
                 cell.fetchData(model: baseballSlogans[indexPath.row])
                 return cell
+            
             default:
-                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PosterCollectionViewCell.identifier, for: indexPath) as? PosterCollectionViewCell else { return UICollectionViewCell() }
-                return cell
+                fatalError("Unexpected section \(indexPath.section)")
             }
         }
+        // 기본 셀 반환
+        return UICollectionViewCell()
     }
+
 }
 
 extension MainViewController: UICollectionViewDelegateFlowLayout {

@@ -56,4 +56,30 @@ extension UIImage {
     static var account: UIImage {
         return UIImage(named: "account")!
     }
+    
+    static var bird: UIImage {
+        return UIImage(named: "bird")!
+    }
+    
+    static var ten: UIImage {
+        return UIImage(named: "ten")!
+    }
+    
+    static var monster: UIImage {
+        return UIImage(named: "monster")!
+    }
+    
+    static var panda: UIImage {
+        return UIImage(named: "panda")!
+    }
+    
+    static var criminal: UIImage {
+        return UIImage(named: "criminal")!
+    }
 }
+
+let movieImageMapping: [String: UIImage] = [
+    "범죄도시4": .criminal,
+    "쿵푸팬더4": .panda,
+    // 다른 영화 이름과 이미지 매핑 추가...
+]

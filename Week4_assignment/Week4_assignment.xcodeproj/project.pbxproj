@@ -39,9 +39,11 @@
 		2C3A8C8D2BE51327002B1CF7 /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3A8C8C2BE51327002B1CF7 /* UITextField+.swift */; };
 		2C3A8C912BE517B1002B1CF7 /* LiveCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3A8C902BE517B1002B1CF7 /* LiveCollectionViewCell.swift */; };
 		2C5A14472BE9063600B8B5D6 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5A14462BE9063600B8B5D6 /* NetworkManager.swift */; };
+		6B1810F243A6F17CE47709C1 /* Pods_Week3_assignment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B6E72A876F6A864F08AD2AE /* Pods_Week3_assignment.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1B6895BC897F9423615C3912 /* Pods-Week3_assignment.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Week3_assignment.debug.xcconfig"; path = "Target Support Files/Pods-Week3_assignment/Pods-Week3_assignment.debug.xcconfig"; sourceTree = "<group>"; };
 		2C16BBD22BC6494000544703 /* Week3_assignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Week3_assignment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C16BBD52BC6494000544703 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2C16BBD72BC6494000544703 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -74,6 +76,8 @@
 		2C3A8C8C2BE51327002B1CF7 /* UITextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
 		2C3A8C902BE517B1002B1CF7 /* LiveCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveCollectionViewCell.swift; sourceTree = "<group>"; };
 		2C5A14462BE9063600B8B5D6 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		4531FCE02BA975FF93A6A70E /* Pods-Week3_assignment.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Week3_assignment.release.xcconfig"; path = "Target Support Files/Pods-Week3_assignment/Pods-Week3_assignment.release.xcconfig"; sourceTree = "<group>"; };
+		8B6E72A876F6A864F08AD2AE /* Pods_Week3_assignment.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Week3_assignment.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +87,7 @@
 			files = (
 				2C16BBEB2BC64C2000544703 /* SnapKit in Frameworks */,
 				2C1A46B72BDB908900396612 /* Then in Frameworks */,
+				6B1810F243A6F17CE47709C1 /* Pods_Week3_assignment.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,6 +99,8 @@
 			children = (
 				2C16BBD42BC6494000544703 /* Week2_assignment */,
 				2C16BBD32BC6494000544703 /* Products */,
+				ABE19E11990571CCC1EDB820 /* Pods */,
+				5C36720347E34ECE484977D5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -191,6 +198,24 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
+		5C36720347E34ECE484977D5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8B6E72A876F6A864F08AD2AE /* Pods_Week3_assignment.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		ABE19E11990571CCC1EDB820 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1B6895BC897F9423615C3912 /* Pods-Week3_assignment.debug.xcconfig */,
+				4531FCE02BA975FF93A6A70E /* Pods-Week3_assignment.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -198,9 +223,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2C16BBE62BC6494100544703 /* Build configuration list for PBXNativeTarget "Week3_assignment" */;
 			buildPhases = (
+				B92EA2CF225704009A6F9518 /* [CP] Check Pods Manifest.lock */,
 				2C16BBCE2BC6494000544703 /* Sources */,
 				2C16BBCF2BC6494000544703 /* Frameworks */,
 				2C16BBD02BC6494000544703 /* Resources */,
+				64ED64F158DE3E186A005826 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -242,6 +269,7 @@
 			packageReferences = (
 				2C16BBE92BC64C2000544703 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				2C1A46B52BDB908900396612 /* XCRemoteSwiftPackageReference "Then" */,
+				2C7252482BEDC223000589DB /* XCRemoteSwiftPackageReference "Moya" */,
 			);
 			productRefGroup = 2C16BBD32BC6494000544703 /* Products */;
 			projectDirPath = "";
@@ -273,6 +301,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		64ED64F158DE3E186A005826 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Week3_assignment/Pods-Week3_assignment-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Week3_assignment/Pods-Week3_assignment-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Week3_assignment/Pods-Week3_assignment-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B92EA2CF225704009A6F9518 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Week3_assignment-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2C16BBCE2BC6494000544703 /* Sources */ = {
@@ -438,6 +508,7 @@
 		};
 		2C16BBE72BC6494100544703 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1B6895BC897F9423615C3912 /* Pods-Week3_assignment.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -466,6 +537,7 @@
 		};
 		2C16BBE82BC6494100544703 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4531FCE02BA975FF93A6A70E /* Pods-Week3_assignment.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -530,6 +602,14 @@
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 3.0.0;
+			};
+		};
+		2C7252482BEDC223000589DB /* XCRemoteSwiftPackageReference "Moya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Moya/Moya";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 15.0.3;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
