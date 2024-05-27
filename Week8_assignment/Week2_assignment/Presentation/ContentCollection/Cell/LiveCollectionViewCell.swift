@@ -1,9 +1,6 @@
-// LiveCollectionViewCell.swift
-
 import UIKit
 import SnapKit
 
-/// 티빙 라이브 프로그램 컬렉션뷰 셀
 final class LiveCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Properties
@@ -21,12 +18,12 @@ final class LiveCollectionViewCell: UICollectionViewCell {
         $0.font = .pretendard(weight: 700, size: 19)
         $0.textAlignment = .left
         $0.transform = CGAffineTransform(rotationAngle: CGFloat(-0.75 * .pi / 180))
-        $0.frame.size = CGSize(width: 12, height: 30) // width와 height 설정
+        $0.frame.size = CGSize(width: 12, height: 30)
         $0.snp.makeConstraints { make in
             make.width.equalTo(12)
             make.height.equalTo(30)
         }
-        $0.lineBreakMode = .byClipping 
+        $0.lineBreakMode = .byClipping
     }
     
     private let openDateLabel = UILabel().then {
@@ -87,6 +84,11 @@ final class LiveCollectionViewCell: UICollectionViewCell {
     
     // MARK: - 데이터 바인딩
     func fetchData(model: DailyBoxOffice) {
+        updateUI(with: model)
+    }
+    
+    // MARK: - Private Methods
+    private func updateUI(with model: DailyBoxOffice) {
         let imageName = (Int(model.rank) ?? 0) % 2 == 0 ? "blue" : "yellow"
         movieImageView.image = UIImage(named: imageName)
         rankLabel.text = model.rank

@@ -1,8 +1,12 @@
 import Foundation
 import Moya
 
+protocol BoxOfficeServiceProtocol {
+    func fetchBoxOfficeData(forDate date: String, completion: @escaping (NetworkResult<[DailyBoxOffice]>) -> Void)
+}
+
 // MARK: - BoxOfficeService for Network Calls
-class BoxOfficeService: BaseService {
+class BoxOfficeService: BaseService, BoxOfficeServiceProtocol {
     static let shared = BoxOfficeService()
     private let provider = MoyaProvider<BoxOfficeTargetType>()
 
@@ -15,14 +19,13 @@ class BoxOfficeService: BaseService {
                 case .success(let boxOfficeResponse):
                     completion(.success(boxOfficeResponse.boxOfficeResult.dailyBoxOfficeList))
                 case .requestErr, .decodedErr, .pathErr, .serverErr, .networkFail:
-                    completion(.networkFail)  // This simplifies error handling for this example.
+                    completion(.networkFail)
                 }
             case .failure(let error):
                 // Handle network failures
                 print("Network error occurred: \(error.localizedDescription)")
-                completion(.networkFail)  // Using the generic network fail case.
+                completion(.networkFail)
             }
         }
     }
 }
-

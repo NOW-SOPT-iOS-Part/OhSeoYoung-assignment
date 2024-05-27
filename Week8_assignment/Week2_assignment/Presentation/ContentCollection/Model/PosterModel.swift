@@ -1,7 +1,5 @@
-
 import UIKit
 
-/// 프로그램 포스터 데이터 모델
 struct Poster {
     var name: String
     var image: UIImage

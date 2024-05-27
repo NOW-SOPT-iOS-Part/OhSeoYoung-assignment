@@ -13,7 +13,6 @@ final class NetworkService {
     
     private init() {}
     
-//    let transferService: TransferService = TransferService()
     let boxOfficeService: BoxOfficeService = BoxOfficeService()
 
 }

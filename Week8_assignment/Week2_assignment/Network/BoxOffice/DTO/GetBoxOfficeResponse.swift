@@ -22,7 +22,7 @@ struct DailyBoxOffice: Codable {
     let openDt: String
     let movieNm: String
     let salesShare: String
-    let imageURL: String? // 이미지 URL 추가
+    let imageURL: String?
     
     enum CodingKeys: String, CodingKey {
         case rank, openDt, movieNm, salesShare, imageURL

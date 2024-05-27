@@ -1,11 +1,3 @@
-//
-//  HeaderView.swift
-//  Week3_assignment
-//
-//  Created by 오서영 on 2024/05/03.
-//
-
-
 import UIKit
 
 import SnapKit
@@ -73,10 +65,19 @@ class HeaderCollectionView: UICollectionReusableView {
             $0.centerY.equalTo(titleLabel)
             $0.trailing.equalToSuperview()
         }
+        
+        func fetchData(_ data: String) {
+            titleLabel.text = data
+        }
     }
     
-    /// 더미 데이터를 뷰에 연결
-    func fetchData(_ data: String) {
-        titleLabel.text = data
+    // MARK: - Public Methods
+    
+    func fetchData(_ title: String) {
+        titleLabel.text = title
+    }
+    
+    func configureFullViewButtonAction(_ target: Any?, action: Selector, forControlEvents controlEvents: UIControl.Event) {
+        fullViewButton.addTarget(target, action: action, for: controlEvents)
     }
 }

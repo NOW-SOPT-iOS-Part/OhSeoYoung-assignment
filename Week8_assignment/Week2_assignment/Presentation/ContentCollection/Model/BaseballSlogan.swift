@@ -7,12 +7,11 @@
 
 import UIKit
 
-/// 야구 슬로건 데이터 모델
 struct BaseballSlogan {
     var image: UIImage
 }
 
-extension BaseballSlogan {
+struct BaseballSloganDataGenerator {
     static func dummyData() -> [BaseballSlogan] {
         return [
             BaseballSlogan(image: .bearsSloganWhite),
