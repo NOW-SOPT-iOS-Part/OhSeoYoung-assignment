@@ -39,8 +39,15 @@
 		2C3A8C8D2BE51327002B1CF7 /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3A8C8C2BE51327002B1CF7 /* UITextField+.swift */; };
 		2C3A8C912BE517B1002B1CF7 /* LiveCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3A8C902BE517B1002B1CF7 /* LiveCollectionViewCell.swift */; };
 		2CED106F2C045EB300DF3B1E /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 2CED106E2C045EB300DF3B1E /* Moya */; };
-		2CED10712C0460F600DF3B1E /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CED10702C0460F600DF3B1E /* NetworkManager.swift */; };
 		2CED10782C046A8000DF3B1E /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CED10772C046A8000DF3B1E /* Config.swift */; };
+		2CED107E2C046E8300DF3B1E /* MoyaLoggingPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CED107D2C046E8300DF3B1E /* MoyaLoggingPlugin.swift */; };
+		2CED10802C046EBB00DF3B1E /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CED107F2C046EBB00DF3B1E /* NetworkResult.swift */; };
+		2CED10822C046EEF00DF3B1E /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CED10812C046EEF00DF3B1E /* BaseService.swift */; };
+		2CED10842C046F1C00DF3B1E /* BaseTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CED10832C046F1C00DF3B1E /* BaseTargetType.swift */; };
+		2CED10862C046F3300DF3B1E /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CED10852C046F3300DF3B1E /* NetworkService.swift */; };
+		2CED108A2C04729700DF3B1E /* GetBoxOfficeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CED10892C04729700DF3B1E /* GetBoxOfficeResponse.swift */; };
+		2CED108C2C0472A800DF3B1E /* BoxOfficeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CED108B2C0472A800DF3B1E /* BoxOfficeService.swift */; };
+		2CED108E2C0472B400DF3B1E /* BoxOfficeTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CED108D2C0472B400DF3B1E /* BoxOfficeTargetType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,8 +82,15 @@
 		2C3A8C8A2BE50CF8002B1CF7 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		2C3A8C8C2BE51327002B1CF7 /* UITextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
 		2C3A8C902BE517B1002B1CF7 /* LiveCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveCollectionViewCell.swift; sourceTree = "<group>"; };
-		2CED10702C0460F600DF3B1E /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		2CED10772C046A8000DF3B1E /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		2CED107D2C046E8300DF3B1E /* MoyaLoggingPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaLoggingPlugin.swift; sourceTree = "<group>"; };
+		2CED107F2C046EBB00DF3B1E /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
+		2CED10812C046EEF00DF3B1E /* BaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
+		2CED10832C046F1C00DF3B1E /* BaseTargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTargetType.swift; sourceTree = "<group>"; };
+		2CED10852C046F3300DF3B1E /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		2CED10892C04729700DF3B1E /* GetBoxOfficeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetBoxOfficeResponse.swift; sourceTree = "<group>"; };
+		2CED108B2C0472A800DF3B1E /* BoxOfficeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxOfficeService.swift; sourceTree = "<group>"; };
+		2CED108D2C0472B400DF3B1E /* BoxOfficeTargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxOfficeTargetType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,7 +204,8 @@
 		2CED10722C046A1100DF3B1E /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				2CED10702C0460F600DF3B1E /* NetworkManager.swift */,
+				2CED10872C04717000DF3B1E /* BoxOffice */,
+				2CED107C2C046E3A00DF3B1E /* Base */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -246,10 +261,48 @@
 		2CED107A2C046C2F00DF3B1E /* Welcome */ = {
 			isa = PBXGroup;
 			children = (
-				2C16BBD92BC6494000544703 /* ViewController.swift */,
-				2C16BBEC2BC64E1F00544703 /* WelcomeViewController.swift */,
+				2CED107B2C046DFD00DF3B1E /* ViewController */,
 			);
 			path = Welcome;
+			sourceTree = "<group>";
+		};
+		2CED107B2C046DFD00DF3B1E /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				2C16BBEC2BC64E1F00544703 /* WelcomeViewController.swift */,
+				2C16BBD92BC6494000544703 /* ViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		2CED107C2C046E3A00DF3B1E /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				2CED107D2C046E8300DF3B1E /* MoyaLoggingPlugin.swift */,
+				2CED107F2C046EBB00DF3B1E /* NetworkResult.swift */,
+				2CED10812C046EEF00DF3B1E /* BaseService.swift */,
+				2CED10832C046F1C00DF3B1E /* BaseTargetType.swift */,
+				2CED10852C046F3300DF3B1E /* NetworkService.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		2CED10872C04717000DF3B1E /* BoxOffice */ = {
+			isa = PBXGroup;
+			children = (
+				2CED10882C04728600DF3B1E /* DTO */,
+				2CED108B2C0472A800DF3B1E /* BoxOfficeService.swift */,
+				2CED108D2C0472B400DF3B1E /* BoxOfficeTargetType.swift */,
+			);
+			path = BoxOffice;
+			sourceTree = "<group>";
+		};
+		2CED10882C04728600DF3B1E /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				2CED10892C04729700DF3B1E /* GetBoxOfficeResponse.swift */,
+			);
+			path = DTO;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -342,25 +395,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2CED10712C0460F600DF3B1E /* NetworkManager.swift in Sources */,
 				2C16BBDA2BC6494000544703 /* ViewController.swift in Sources */,
 				2C3A8C822BE50974002B1CF7 /* UIColor+.swift in Sources */,
+				2CED108C2C0472A800DF3B1E /* BoxOfficeService.swift in Sources */,
 				2C16BBED2BC64E1F00544703 /* WelcomeViewController.swift in Sources */,
 				2CED10782C046A8000DF3B1E /* Config.swift in Sources */,
 				2C3A8C842BE50A14002B1CF7 /* UIImage+.swift in Sources */,
+				2CED10802C046EBB00DF3B1E /* NetworkResult.swift in Sources */,
 				2C3A8C592BE4F400002B1CF7 /* LiveProgramModel.swift in Sources */,
 				2C3A8C662BE4F5EB002B1CF7 /* PosterCollectionViewCell.swift in Sources */,
 				2C16BBD62BC6494000544703 /* AppDelegate.swift in Sources */,
+				2CED10862C046F3300DF3B1E /* NetworkService.swift in Sources */,
+				2CED108A2C04729700DF3B1E /* GetBoxOfficeResponse.swift in Sources */,
 				2C3A8C7E2BE50898002B1CF7 /* UIFont+.swift in Sources */,
+				2CED107E2C046E8300DF3B1E /* MoyaLoggingPlugin.swift in Sources */,
 				2C3A8C5B2BE4F451002B1CF7 /* BaseballSlogan.swift in Sources */,
 				2C3A8C602BE4F5BB002B1CF7 /* BaseballCollectionViewCell.swift in Sources */,
 				2C3A8C682BE4F5FA002B1CF7 /* TabControllCollectionViewCell.swift in Sources */,
+				2CED10822C046EEF00DF3B1E /* BaseService.swift in Sources */,
 				2C3A8C622BE4F5C5002B1CF7 /* HeaderCollectionView.swift in Sources */,
+				2CED108E2C0472B400DF3B1E /* BoxOfficeTargetType.swift in Sources */,
 				2C3A8C8B2BE50CF8002B1CF7 /* MainViewController.swift in Sources */,
 				2C3A8C8D2BE51327002B1CF7 /* UITextField+.swift in Sources */,
 				2C16BBD82BC6494000544703 /* SceneDelegate.swift in Sources */,
 				2C1A46B42BDB8DE100396612 /* PosterModel.swift in Sources */,
 				2C3A8C912BE517B1002B1CF7 /* LiveCollectionViewCell.swift in Sources */,
+				2CED10842C046F1C00DF3B1E /* BaseTargetType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+
 import UIKit
 
 extension UIImage {
@@ -76,6 +77,7 @@ extension UIImage {
     static var criminal: UIImage {
         return UIImage(named: "criminal")!
     }
+    
 }
 
 let movieImageMapping: [String: UIImage] = [

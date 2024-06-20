@@ -10,7 +10,6 @@ import UIKit
 
 import SnapKit
 
-/// 상단의 탭 컬렉션뷰
 final class TabControlCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Properties
@@ -63,7 +62,6 @@ final class TabControlCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    /// 더미 데이터를 뷰에 연결
     func fetchData(model: Tab) {
         tabNameLabel.text = model.name
         contentView.snp.remakeConstraints {
@@ -71,7 +69,6 @@ final class TabControlCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    /// 홈 말고 다른 애들 바텀 밑줄 뷰 숨기기
     func hideOtherTabs() {
         if tabNameLabel.text != "홈" {
             bottomView.isHidden = true

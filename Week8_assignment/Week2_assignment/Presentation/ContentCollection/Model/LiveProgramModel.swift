@@ -7,13 +7,12 @@
 
 import UIKit
 
-/// 라이브 프로그램 데이터 모델
 struct LiveProgram {
     var rank: String
     var openDate: String
     var movieName: String
     var salesShare: String
-    var image: UIImage? // 이미지는 옵셔널로 변경
+    var image: UIImage?
 }
 
 extension LiveProgram {

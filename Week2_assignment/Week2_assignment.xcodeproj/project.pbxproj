@@ -13,6 +13,8 @@
 		2C16BBDD2BC6494000544703 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C16BBDB2BC6494000544703 /* Main.storyboard */; };
 		2C16BBDF2BC6494100544703 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C16BBDE2BC6494100544703 /* Assets.xcassets */; };
 		2C16BBE22BC6494100544703 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C16BBE02BC6494100544703 /* LaunchScreen.storyboard */; };
+		2C16BBEB2BC64C2000544703 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2C16BBEA2BC64C2000544703 /* SnapKit */; };
+		2C16BBED2BC64E1F00544703 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C16BBEC2BC64E1F00544703 /* WelcomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,7 @@
 		2C16BBDE2BC6494100544703 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2C16BBE12BC6494100544703 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2C16BBE32BC6494100544703 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2C16BBEC2BC64E1F00544703 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +34,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C16BBEB2BC64C2000544703 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,6 +63,7 @@
 				2C16BBD52BC6494000544703 /* AppDelegate.swift */,
 				2C16BBD72BC6494000544703 /* SceneDelegate.swift */,
 				2C16BBD92BC6494000544703 /* ViewController.swift */,
+				2C16BBEC2BC64E1F00544703 /* WelcomeViewController.swift */,
 				2C16BBDB2BC6494000544703 /* Main.storyboard */,
 				2C16BBDE2BC6494100544703 /* Assets.xcassets */,
 				2C16BBE02BC6494100544703 /* LaunchScreen.storyboard */,
@@ -83,6 +88,9 @@
 			dependencies = (
 			);
 			name = Week2_assignment;
+			packageProductDependencies = (
+				2C16BBEA2BC64C2000544703 /* SnapKit */,
+			);
 			productName = Week2_assignment;
 			productReference = 2C16BBD22BC6494000544703 /* Week2_assignment.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +119,9 @@
 				Base,
 			);
 			mainGroup = 2C16BBC92BC6494000544703;
+			packageReferences = (
+				2C16BBE92BC64C2000544703 /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = 2C16BBD32BC6494000544703 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -139,6 +150,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C16BBDA2BC6494000544703 /* ViewController.swift in Sources */,
+				2C16BBED2BC64E1F00544703 /* WelcomeViewController.swift in Sources */,
 				2C16BBD62BC6494000544703 /* AppDelegate.swift in Sources */,
 				2C16BBD82BC6494000544703 /* SceneDelegate.swift in Sources */,
 			);
@@ -358,6 +370,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2C16BBE92BC64C2000544703 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2C16BBEA2BC64C2000544703 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2C16BBE92BC64C2000544703 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 2C16BBCA2BC6494000544703 /* Project object */;
 }
