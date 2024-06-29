@@ -25,7 +25,7 @@ extension BoxOfficeTargetType: TargetType {
     var task: Task {
         switch self {
         case let .fetchBoxOfficeData(date):
-            return .requestParameters(parameters: ["key": "b4ddbf38f567f468512099872d9cc672", "targetDt": date], encoding: URLEncoding.queryString)
+            return .requestParameters(parameters: ["key": apiKey, "targetDt": date], encoding: URLEncoding.queryString)
         }
     }
 
