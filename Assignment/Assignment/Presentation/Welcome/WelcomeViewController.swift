@@ -41,6 +41,7 @@ final class WelcomeViewController: UIViewController {
         button.setTitle("메인으로", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = UIFont(name: "Pretendard-Bold", size: 18)
+        button.addTarget(self, action: #selector(goHomeButtonDidTap), for: .touchUpInside)
         return button
     }()
     
@@ -93,6 +94,12 @@ final class WelcomeViewController: UIViewController {
             delegate?.dataBind(id: id)
         }
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    @objc
+    private func goHomeButtonDidTap() {
+        let mainViewController = MainViewController()
+        self.navigationController?.pushViewController(mainViewController, animated: true)
     }
 
 }
