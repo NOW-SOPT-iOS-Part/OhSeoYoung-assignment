@@ -31,6 +31,16 @@
 		2C691F502C249B27002E4933 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C691F4F2C249B27002E4933 /* WelcomeViewController.swift */; };
 		2C691F532C249BA0002E4933 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2C691F522C249BA0002E4933 /* SnapKit */; };
 		2CA7E7BF2C2C533600D29AC6 /* UIButton+Underline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA7E7BE2C2C533600D29AC6 /* UIButton+Underline.swift */; };
+		2CAA21022C2FF56F001C9979 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 2CAA20FF2C2FF56F001C9979 /* Config.xcconfig */; };
+		2CAA21062C2FF5A2001C9979 /* BaseTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAA21032C2FF5A1001C9979 /* BaseTargetType.swift */; };
+		2CAA21072C2FF5A2001C9979 /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAA21042C2FF5A1001C9979 /* BaseService.swift */; };
+		2CAA21082C2FF5A2001C9979 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAA21052C2FF5A2001C9979 /* Config.swift */; };
+		2CAA210B2C2FF5A9001C9979 /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAA21092C2FF5A8001C9979 /* NetworkResult.swift */; };
+		2CAA210C2C2FF5A9001C9979 /* MoyaLoggingPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAA210A2C2FF5A9001C9979 /* MoyaLoggingPlugin.swift */; };
+		2CAA210E2C2FF5AC001C9979 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAA210D2C2FF5AC001C9979 /* NetworkService.swift */; };
+		2CAA21142C2FF5BD001C9979 /* BoxOfficeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAA21102C2FF5BD001C9979 /* BoxOfficeService.swift */; };
+		2CAA21152C2FF5BD001C9979 /* GetBoxOfficeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAA21112C2FF5BD001C9979 /* GetBoxOfficeResponse.swift */; };
+		2CAA21162C2FF5BD001C9979 /* BoxOfficeTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAA21132C2FF5BD001C9979 /* BoxOfficeTargetType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +68,16 @@
 		2C691F4D2C249B1D002E4933 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		2C691F4F2C249B27002E4933 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		2CA7E7BE2C2C533600D29AC6 /* UIButton+Underline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Underline.swift"; sourceTree = "<group>"; };
+		2CAA20FF2C2FF56F001C9979 /* Config.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		2CAA21032C2FF5A1001C9979 /* BaseTargetType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTargetType.swift; sourceTree = "<group>"; };
+		2CAA21042C2FF5A1001C9979 /* BaseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
+		2CAA21052C2FF5A2001C9979 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		2CAA21092C2FF5A8001C9979 /* NetworkResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
+		2CAA210A2C2FF5A9001C9979 /* MoyaLoggingPlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoyaLoggingPlugin.swift; sourceTree = "<group>"; };
+		2CAA210D2C2FF5AC001C9979 /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		2CAA21102C2FF5BD001C9979 /* BoxOfficeService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxOfficeService.swift; sourceTree = "<group>"; };
+		2CAA21112C2FF5BD001C9979 /* GetBoxOfficeResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetBoxOfficeResponse.swift; sourceTree = "<group>"; };
+		2CAA21132C2FF5BD001C9979 /* BoxOfficeTargetType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxOfficeTargetType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +148,7 @@
 		2C691F252C249975002E4933 /* Assignment */ = {
 			isa = PBXGroup;
 			children = (
+				2CAA21012C2FF56F001C9979 /* Network */,
 				2C691F342C249977002E4933 /* Info.plist */,
 				2C691F592C249ED5002E4933 /* Presentation */,
 				2C691F582C249EC1002E4933 /* Application */,
@@ -215,6 +236,47 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		2CAA21002C2FF56F001C9979 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				2CAA210D2C2FF5AC001C9979 /* NetworkService.swift */,
+				2CAA210A2C2FF5A9001C9979 /* MoyaLoggingPlugin.swift */,
+				2CAA21092C2FF5A8001C9979 /* NetworkResult.swift */,
+				2CAA21042C2FF5A1001C9979 /* BaseService.swift */,
+				2CAA21032C2FF5A1001C9979 /* BaseTargetType.swift */,
+				2CAA21052C2FF5A2001C9979 /* Config.swift */,
+				2CAA20FF2C2FF56F001C9979 /* Config.xcconfig */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		2CAA21012C2FF56F001C9979 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				2CAA210F2C2FF5B3001C9979 /* BoxOffice */,
+				2CAA21002C2FF56F001C9979 /* Base */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		2CAA210F2C2FF5B3001C9979 /* BoxOffice */ = {
+			isa = PBXGroup;
+			children = (
+				2CAA21102C2FF5BD001C9979 /* BoxOfficeService.swift */,
+				2CAA21132C2FF5BD001C9979 /* BoxOfficeTargetType.swift */,
+				2CAA21122C2FF5BD001C9979 /* DTO */,
+			);
+			path = BoxOffice;
+			sourceTree = "<group>";
+		};
+		2CAA21122C2FF5BD001C9979 /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				2CAA21112C2FF5BD001C9979 /* GetBoxOfficeResponse.swift */,
+			);
+			path = DTO;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -286,6 +348,7 @@
 				2C691F4A2C249A2B002E4933 /* Pretendard-ExtraLight.otf in Resources */,
 				2C691F402C249A21002E4933 /* Pretendard-Thin.otf in Resources */,
 				2C691F332C249977002E4933 /* Base in Resources */,
+				2CAA21022C2FF56F001C9979 /* Config.xcconfig in Resources */,
 				2C691F2E2C249975002E4933 /* Base in Resources */,
 				2C691F4B2C249A2B002E4933 /* Pretendard-ExtraBold.otf in Resources */,
 				2C691F422C249A21002E4933 /* Pretendard-Regular.otf in Resources */,
@@ -303,16 +366,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2CAA210C2C2FF5A9001C9979 /* MoyaLoggingPlugin.swift in Sources */,
 				2C691F4E2C249B1D002E4933 /* LoginViewController.swift in Sources */,
 				2C691F502C249B27002E4933 /* WelcomeViewController.swift in Sources */,
 				2C1E98622C2D95B50054F87B /* ChannelCollectionViewCell.swift in Sources */,
 				2C1E98602C2D95AC0054F87B /* ContentCollectionViewCell.swift in Sources */,
+				2CAA21062C2FF5A2001C9979 /* BaseTargetType.swift in Sources */,
+				2CAA21142C2FF5BD001C9979 /* BoxOfficeService.swift in Sources */,
 				2C691F272C249975002E4933 /* AppDelegate.swift in Sources */,
+				2CAA21082C2FF5A2001C9979 /* Config.swift in Sources */,
 				2C1E985B2C2D929A0054F87B /* MainViewController.swift in Sources */,
 				2C691F292C249975002E4933 /* SceneDelegate.swift in Sources */,
+				2CAA21162C2FF5BD001C9979 /* BoxOfficeTargetType.swift in Sources */,
+				2CAA21152C2FF5BD001C9979 /* GetBoxOfficeResponse.swift in Sources */,
+				2CAA210E2C2FF5AC001C9979 /* NetworkService.swift in Sources */,
+				2CAA21072C2FF5A2001C9979 /* BaseService.swift in Sources */,
 				2C1E98662C2D95D10054F87B /* ChannelModel.swift in Sources */,
 				2CA7E7BF2C2C533600D29AC6 /* UIButton+Underline.swift in Sources */,
 				2C1E98642C2D95C90054F87B /* ContentModel.swift in Sources */,
+				2CAA210B2C2FF5A9001C9979 /* NetworkResult.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
