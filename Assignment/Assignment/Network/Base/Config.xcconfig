@@ -1,0 +1,14 @@
+//
+//  Config.xcconfig
+//  Assignment
+//
+//  Created by 오서영 on 6/29/24.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+APIKey = 359591d7f62a09c1b599574ab135cb7c
+BASE_URL = "http://www.kobis.or.kr/kobisopenapi/webservice/soap/boxoffice"
+
+

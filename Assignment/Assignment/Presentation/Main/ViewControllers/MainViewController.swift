@@ -12,8 +12,18 @@ import Then
 class MainViewController: UIViewController {
     
     let contentDummy = Content.dummy()
-    let channelDummy = Channel.dummy()
     let menuData = ["홈", "실시간", "TV프로그램", "영화", "파라마운트+"]
+    private let boxOfficeService: BoxOfficeServiceProtocol
+    var livePrograms: [DailyBoxOffice] = []
+    
+    init(boxOfficeService: BoxOfficeServiceProtocol = BoxOfficeService.shared) {
+        self.boxOfficeService = boxOfficeService
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     final private let scrollView = UIScrollView().then {
             $0.backgroundColor = .black
@@ -157,6 +167,8 @@ class MainViewController: UIViewController {
 
         setLayout()
         setDelegate()
+        fetchLivePrograms()
+        
     }
     
     final private func setLayout() {
@@ -296,12 +308,33 @@ class MainViewController: UIViewController {
             magicCollectionView.delegate = self
             magicCollectionView.dataSource = self
             
+        }
+    
+        private func fetchLivePrograms() {
+            let date = "20240628"
+            boxOfficeService.fetchBoxOfficeData(forDate: date) { [weak self] result in
+                switch result {
+                case .success(let livePrograms):
+                    self?.livePrograms = livePrograms
+                    self?.channelCollectionView.reloadData()
+                case .requestErr:
+                    print("요청 오류 입니다")
+                case .decodedErr:
+                    print("디코딩 오류 입니다")
+                case .pathErr:
+                    print("경로 오류 입니다")
+                case .serverErr:
+                    print("서버 오류입니다")
+                case .networkFail:
+                    print("네트워크 오류입니다")
+                }
             }
+        }
 }
 
 extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if collectionView == channelCollectionView { return channelDummy.count }
+        if collectionView == channelCollectionView { return livePrograms.count }
         
         return contentDummy.count
     }
@@ -311,15 +344,22 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         
         if collectionView == channelCollectionView {
             let channelCell = (collectionView.dequeueReusableCell(withReuseIdentifier: ChannelCollectionViewCell.cellID, for: indexPath) as? ChannelCollectionViewCell)!
-            
-            channelCell.channelImageView.image = channelDummy[indexPath.row].image
-            channelCell.channelLabel.text = channelDummy[indexPath.row].channel
-            channelCell.contentLabel.text = channelDummy[indexPath.row].content
-            channelCell.rankLabel.text = channelDummy[indexPath.row].rank
-            channelCell.ratingLabel.text = channelDummy[indexPath.row].rating
-            
+            let program = livePrograms[indexPath.row]
+            channelCell.configure(with: program)
             return channelCell
         }
+        
+//        if collectionView == channelCollectionView {
+//            let channelCell = (collectionView.dequeueReusableCell(withReuseIdentifier: ChannelCollectionViewCell.cellID, for: indexPath) as? ChannelCollectionViewCell)!
+//            
+//            channelCell.channelImageView.image = channelDummy[indexPath.row].image
+//            channelCell.channelLabel.text = channelDummy[indexPath.row].channel
+//            channelCell.contentLabel.text = channelDummy[indexPath.row].content
+//            channelCell.rankLabel.text = channelDummy[indexPath.row].rank
+//            channelCell.ratingLabel.text = channelDummy[indexPath.row].rating
+//            
+//            return channelCell
+//        }
         
         contentCell?.contentImageView.image = contentDummy[indexPath.row].image
         contentCell?.contentLabel.text = contentDummy[indexPath.row].name
