@@ -98,4 +98,14 @@ class ChannelCollectionViewCell: UICollectionViewCell {
             $0.bottom.equalToSuperview()
         }
     }
+    
+    func configure(with model: DailyBoxOffice) {
+        channelLabel.text = model.movieNm
+        contentLabel.text = model.openDt
+        rankLabel.text = model.rank
+        ratingLabel.text = model.salesShare
+        channelImageView.image = UIImage(named: "yellow")
+    }
+    
 }
+
